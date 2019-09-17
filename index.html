@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>나의 예상 키는?</title>
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+	<style type="text/css">
+	body {text-align: center; display: block; font-family: 'Nanum Myeongjo', serif; padding-top: 50px; background-color: #d4f2fe; background-image:url(bg.png); }
+	#mytxt {font-size: 9pt; color: #49483f; line-height: 16pt; letter-spacing: -0.1em;}
+	#myname { padding: 18px; margin-right:10px; padding-bottom:3px; font-size: 13pt; width: 180px;}
+	#mom {font-size: 9pt; padding-top: 5px;}
+	#myw {font-size: 9pt; padding-top: 5px;}
+	#myh {font-size: 9pt; padding-top: 5px;}
+	#monitor {color: #ff0000;}
+	.mybox {margin: 0 auto; display: block; width: 500px; height: 320px; border: 1px dashed; margin-bottom: 40px;}
+	.mybox2 {margin: 0 auto; display: block; width: 500px; height: 59px; border: 1px dashed;  }
+	h4 {margin-top:35px;  text-decoration: underline;}
+	h1{letter-spacing: -0.1em;}
+
+
+	</style>
+</head>
+<body>
+	<h1><input type="text" id="myname" placeholder="이름을 입력해주세요.">님의 예상 키 를 계산해 봅시다 <i>!</i></h1><br>
+	<div id="mytxt">" 키에 유전이 차지하는 비율은 20~30%에 불과하다는 것이 중론입니다.<br>
+	나머지 70%는 영양과 운동 그리고 환경이 중대한 영향을 끼칩니다. "</div><br><br>
+	<div class="mybox">
+		<h4>아빠 </h4>
+		150<input type="range" min="150" max="190" id="dad">190<br>
+		<div id="myh">170cm</div><br><br>
+		<h4>엄마</h4>
+		150<input type="range" min="150" max="190" id="mom">190
+		<div id="myw">170cm</div><br><br>
+	</div>
+	<div class="mybox2">
+		<h3><div id="monitor">님의 예상 키는 000입니다.</div></h3>
+	</div>
+	<script>
+		dad.oninput = function(){
+			myh.innerHTML = dad.value;
+			var sheight = (Number(dad.value) + Number(mom.value))/2 - 6.5;
+			monitor.innerHTML = myname.value + "님의 예상 키는" + sheight + "cm입니다.";
+		}
+		mom.oninput = function(){
+			myw.innerHTML = mom.value;
+			var sheight = (Number(dad.value) + Number(mom.value))/2 - 6.5;
+			monitor.innerHTML = myname.value + "님의 예상 키는" + sheight + "cm입니다.";
+		}
+
+	</script>
+</body>
+</html>
